@@ -3,7 +3,7 @@ import requests
 
 def index(request):
     # OpenWeatherMap API URL
-    url = "http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=d18fc568438a833cbcd4fdeb36def429"
+    url = "http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=d18fc568438a833cbcd4fdeb36def429"   # I deactivated this API Key. You will have to create your own and use it.
 
     city = "Las Vegas"  # Default city
     city_weather = {}  # Initialize city_weather dictionary
