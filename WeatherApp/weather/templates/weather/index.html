@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,16 @@
     <style>
         /* General Styles */
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 100px 0 0 0; /* Increased top padding to 100px */
-    background: linear-gradient(to bottom, #6dd5fa, #2980b9);
-    background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
-    color: #fff;
-    text-align: center;
-}
-
-
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 100px 0 0 0;
+            /* Increased top padding to 100px */
+            background: linear-gradient(to bottom, #6dd5fa, #2980b9);
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            color: #fff;
+            text-align: center;
+        }
 
         h1 {
             margin-top: 20px;
@@ -122,28 +122,57 @@
         }
 
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
+
 <body>
     <h1>Weather App</h1>
 
@@ -156,19 +185,20 @@
 
     <!-- Spinner (optional) -->
     {% if city_weather.loading %}
-        <div class="spinner"></div>
+    <div class="spinner"></div>
     {% endif %}
 
     <!-- Weather Information -->
     {% if city_weather.error %}
-        <p class="error">{{ city_weather.error }}</p>
+    <p class="error">{{ city_weather.error }}</p>
     {% elif city_weather.city %}
-        <div class="weather-info">
-            <h2>Weather in {{ city_weather.city }}</h2>
-            <p>Temperature: {{ city_weather.temperature }}°F</p>
-            <p>Condition: {{ city_weather.description }}</p>
-            <img src="http://openweathermap.org/img/wn/{{ city_weather.icon }}@2x.png" alt="Weather Icon">
-        </div>
+    <div class="weather-info">
+        <h2>Weather in {{ city_weather.city }}</h2>
+        <p>Temperature: {{ city_weather.temperature }}°F</p>
+        <p>Condition: {{ city_weather.description }}</p>
+        <img src="http://openweathermap.org/img/wn/{{ city_weather.icon }}@2x.png" alt="Weather Icon">
+    </div>
     {% endif %}
 </body>
+
 </html>

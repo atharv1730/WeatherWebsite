@@ -24,9 +24,8 @@ def index(request):
             "description": data['weather'][0]['description'],
             "icon": data['weather'][0]['icon'],
         }
-    except requests.exceptions.RequestException:
+    except:
         city_weather = {"error": "Unable to retrieve data. Please enter a valid city."}
 
     # Render template with weather data
     return render(request, 'weather/index.html', {"city_weather": city_weather})
-
